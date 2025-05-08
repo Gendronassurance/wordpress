@@ -7,6 +7,9 @@ RUN apt-get update && apt-get install -y \
     apache2-utils \
     magic-wormhole
 
+# Copy custom php.ini into PHP config directory
+COPY php.ini /usr/local/etc/php/conf.d/custom.ini
+
 RUN usermod -s /bin/bash www-data
 RUN chown www-data:www-data /var/www
 
